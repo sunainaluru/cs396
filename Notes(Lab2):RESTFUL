@@ -1,0 +1,20 @@
+**REST: REpresentational State Transfer**
+- In order for your APIs to be RESTful, you have to follow a set of constraints when you write them
+
+**6 REST Constraints for an API to be RESTful**
+1. Uniform Interface (4 parts): The result of the uniform interface is that requests from different clients look the same, whether the client is a chrome browser, a linux server, a python script, an android app or anything else.  - The request to the server has to include a resource identifier
+  - The response the server returns include enough information so the client can modify the resource
+  - Each request to the API contains all the information the server needs to perform the request, and each response the server returns contain all the information the client needs in order to understand the response.
+  - Hypermedia as the engine of application state. By hypermedia we refer to the hyperlinks, or simply links, that the server can include in the response. The whole sentence means that the server can inform the client , in a response, of the ways to change the state of the web application. If the client asked for a specific user, the server can provide not only the state of that user but also information about how to change the state of the user, for example how to update the user’s name or how to delete the user. It is easy to think about the way it’s done by thinking about a server returning a response in HTML format to a browser (which is the client). The HTML will include tags with links (this is the hypermedia part) to another web page where the user can be updated (for example a link to a ‘profile settings’ page). To put all of this in perspective, most web pages do implement hypermedia as the engine of application state, but the most common web APIs do not adhere to this constraint. 
+2. Client Server separation
+  - The client and the server act independently, each on its own, and the interaction between them is only in the form of requests, initiated by the client only, and responses, which the server send to the client only as a reaction to a request.
+3. Stateless
+  - Stateless means the server does not remember anything about the user who uses the API.
+4. Layered System
+  - These servers might provide a security layer, a caching layer, a load-balancing layer, or other functionality. Those layers should not affect the request or the response.
+5. Cacheable
+  - This means that the data the server sends contain information about whether or not the data is cacheable. If the data is cacheable, it might contain some sort of a version number. The version number is what makes caching possible: since the client knows which version of the data it already has (from a previous response), the client can avoid requesting the same data again and again.
+6. Code-on-demand
+  - Optional constraint: The client can request code from the server, and then the response from the server will contain some code, usually in the form of a script, when the response is in HTML format.   
+**MongoDB**
+MongoDB is a NoSQL database program that organizes collections of JSON-like documents with optional schemas. There are many different kinds of databases out there (relational systems like SQL are a very popular choice for more robust apps), but we’ve selected MongoDB because of its flexibility and usefulness for prototyping.
