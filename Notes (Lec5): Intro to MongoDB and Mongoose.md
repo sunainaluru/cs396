@@ -29,3 +29,8 @@
 - MongoDB is a NoSQL database program that organizes collections of JSON-like documents with optional schemas. 
 - There are many different kinds of databases out there (relational systems like SQL are a very popular choice for data with well-defined entity relations), but we've selected MongoDB because of its flexibility and usefulness for prototyping.
 - Think of each entry in a MongoDB table to be a document (versus a record in a table).
+- Flexibility example: you can create a DB in Mongo just from trying to access it.
+
+**Mongoose**
+- Mongoose is the library that helps us interact with mongo db
+- it's the node client to interact with mongo db
