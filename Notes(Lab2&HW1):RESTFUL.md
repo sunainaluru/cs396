@@ -16,5 +16,28 @@
   - This means that the data the server sends contain information about whether or not the data is cacheable. If the data is cacheable, it might contain some sort of a version number. The version number is what makes caching possible: since the client knows which version of the data it already has (from a previous response), the client can avoid requesting the same data again and again.
 6. Code-on-demand
   - Optional constraint: The client can request code from the server, and then the response from the server will contain some code, usually in the form of a script, when the response is in HTML format.   
+
 **MongoDB**
 MongoDB is a NoSQL database program that organizes collections of JSON-like documents with optional schemas. There are many different kinds of databases out there (relational systems like SQL are a very popular choice for more robust apps), but we’ve selected MongoDB because of its flexibility and usefulness for prototyping.
+
+
+**Transmitting Data via REST requests**
+- url path parameters
+  - Path parameters are embedded within the URL string, which take the form of colon-prefixed variables in the route path. 
+  - For example, in the path `"/doctors/:n"`, `n` is a parameter that can be accessed within the handler using `req.params["n"]`. 
+  - Therefore, if I issued the request `/doctors/d4`, then `req.params["n"]` would evaluate to the string `d4`.
+- the request body
+  - A second way of transmitting data to a server is through the request body. 
+  - On the Node.js side (server side), you can access this object using req.body, which takes the form of a JSON object. 
+  - On the client side, there are several different approaches to encode data in a client request. 
+  - NOTE: Passing data in the request body is typically done for POST, PUT, and PATCH requests. It cannot be done for GET requests.
+- url query string parameters
+  -  Query string parameters are appended to the end of a URL using the question mark `?` delimiter
+  -  Primarily used for GET requests that require additional filtering. 
+  -  For example, if you decided to support the ability to query for companions across several seasons and/or whether the companion lives or dies, you could express that query as follows:
+  -  `"/companions/?seasons=3,4,5&alive=true"`
+  -  Query string parameters can be accessed within the handler using `req.query["param_name"]`
+
+**Status Codes**
+- All HTTP responses have an attached status code, which represents additional information about the request.
+- Commonly used: 200, 400, 500 codes.
